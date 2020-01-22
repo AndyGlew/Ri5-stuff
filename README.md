@@ -1,7 +1,11 @@
 # Ri5-stuff
 Andy Glew RISC-V stuff
 
-See this project's github wiki: https://github.com/AndyGlew/Ri5-stuff/wiki
+See this project's github wiki: 
+* absolute: https://github.com/AndyGlew/Ri5-stuff/wiki
+* relative <a href="../../wiki">href="../../wiki", 
+   * if you have cloned both project git repos, code and wiki
+   * this may link to your local clone, rather than back to github
 
 The active work on the proposal is in the wiki.  Eventually it will probably be moved to the main repository, although it is possible that I will write tools to assemble the actual proposed spec for publication from the wiki directly.  Tools to do that, and to do things like highlight unfinished parts of the proposal on the wiki, will be placed in the main repository.
 
