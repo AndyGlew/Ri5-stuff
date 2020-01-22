@@ -3,7 +3,7 @@ Andy Glew RISC-V stuff
 
 See this project's github wiki: 
 * absolute: https://github.com/AndyGlew/Ri5-stuff/wiki
-* relative <a href="../../wiki">href="../../wiki", 
+* relative <a href="../../wiki">href="../../wiki"</a>, 
    * if you have cloned both project git repos, code and wiki
    * this may link to your local clone, rather than back to github
 
