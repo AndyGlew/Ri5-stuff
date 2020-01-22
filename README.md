@@ -3,7 +3,10 @@ Andy Glew RISC-V stuff
 
 See this project's github wiki: https://github.com/AndyGlew/Ri5-stuff/wiki
 * Q: is there any way that I can refer to that as a relative URL from this README.md
-** FAIL <a href="wiki">href="wiki" relative</a> - fails because it resolves to https://github.com/AndyGlew/Ri5-stuff/blob/master/wiki, i.e. the relative position is not https://github.com/AndyGlew/Ri5-stuff but is blob/master/wiki <a href=".">href="." relative</a> underneath that.
+  * FAIL <a href="wiki">href="wiki" relative</a> 
+  * fails because it resolves to https://github.com/AndyGlew/Ri5-stuff/blob/master/wiki, 
+  * i.e. the relative position is not https://github.com/AndyGlew/Ri5-stuff but is blob/master/wiki 
+  * <a href=".">href="." relative</a> underneath that.
 
 * <a rhef="wiki/">wiki/ relative</a>
 
