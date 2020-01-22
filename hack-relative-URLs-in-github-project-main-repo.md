@@ -1,4 +1,4 @@
-This github project has at least two git repos, the main rep and the wiki repo.
+This github project has at least two git repos, the main repo and the wiki repo.
 * main: https://github.com/AndyGlew/Ri5-stuff.git
 * wiki https://github.com/AndyGlew/Ri5-stuff.wiki.git
 
