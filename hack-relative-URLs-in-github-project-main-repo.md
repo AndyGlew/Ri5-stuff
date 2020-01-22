@@ -1,9 +1,9 @@
-This github project has at least two got repos, the main rep and the wiki repo.
+This github project has at least two git repos, the main rep and the wiki repo.
 * main: https://github.com/AndyGlew/Ri5-stuff.git
 * wiki https://github.com/AndyGlew/Ri5-stuff.wiki.git
 
 
-I want to use relative links between thes workspaces that ordinarily correspond to these repos, 
+I want to use relative links between the workspaces that ordinarily correspond to these repos, 
 * both on the github website and when I have cloned elsewhere
 * e.g. so that I can clone both together and be consistent
   * TBD: exact (automated) procedure to clone both repos and stay relatively consistent
@@ -25,3 +25,7 @@ Trying HTML relative links:
   * <a href="../../../..">href="../../../.." relative</a> https://github.com, 
 
 I am so used to websites not allowing ascending relative components in URLs that I wonder if there is a security hole here... Should not be as long as cannot actually escape an areas mapped to the logged in user or guest.
+
+Recording this in two places:
+* main
+* wiki
