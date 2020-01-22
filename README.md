@@ -20,5 +20,5 @@ Q: is there a way to treat this project on github, both "main git repo" and "wik
   * fails because it resolves to https://github.com/AndyGlew/Ri5-stuff/blob/master/wiki, 
   * i.e. the relative position is not https://github.com/AndyGlew/Ri5-stuff but is blob/master/wiki 
   * <a href=".">href="." relative</a> underneath that.
+  * <a href="..">href=".." relative</a> - I doubt that such an "escape upwards" will work, but...
 
-* <a hef="wiki/">wiki/ relative</a>
