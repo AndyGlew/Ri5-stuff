@@ -1,7 +1,7 @@
 # Ri5-stuff
 Andy Glew RISC-V stuff
 
-See the https:wiki
+See the https://wiki
 
 wiki: https://github.com/AndyGlew/Ri5-stuff/wiki
 
