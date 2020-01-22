@@ -1,7 +1,14 @@
---
+This github project has at least two got repos, the main rep and the wiki repo.
+* main: https://github.com/AndyGlew/Ri5-stuff.git
+* wiki https://github.com/AndyGlew/Ri5-stuff.wiki.git
 
-* Q: is there any way that I can refer to the wiki as a relative URL from this README.md
-  * e.g. so that I can clone both together and be consistent?
+Markldown syntax relative links fail: 
+* [[..]] - \[[..]]
+* [[../../wiki]] - \[[../../wiki]] 
+
+I want to use relative links between thes workspaces that ordinarily correspond to these repos, 
+* both on the github website and when I have cloned elsewhere
+* e.g. so that I can clone both together and be consistent?
   * FAIL <a href="wiki">href="wiki" relative</a> 
   * fails because it resolves to https://github.com/AndyGlew/Ri5-stuff/blob/master/wiki, 
   * i.e. the relative position is not https://github.com/AndyGlew/Ri5-stuff but is blob/master/wiki 
@@ -16,5 +23,4 @@ Should not be as long as cannot go too far upwards
   * <a href="../../..">href="../../.." relative</a> https://github.com/AndyGlew/, 
   * <a href="../../../..">href="../../../.." relative</a> https://github.com, 
   
-  * [[..]]
-  * [[../../wiki]]
+  
