@@ -20,7 +20,7 @@ Trying HTML relative links:
   * <a href=".">href="." relative</a> underneath that.
   * <a href="..">href=".." relative</a> - I doubt that such an "escape upwards" will work, but...  WOW! it works
   * <a href="../..">href="../.." relative</a> 
-  * <a href="../../wiki">href="../../wiki" relative</a> YIPPEE! 
+  * <a href="../../wiki">href="../../wiki" relative</a> YIPPEE! can link from main to wiki
   * <a href="../../..">href="../../.." relative</a> https://github.com/AndyGlew/, 
   * <a href="../../../..">href="../../../.." relative</a> https://github.com, 
 
