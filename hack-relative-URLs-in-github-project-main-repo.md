@@ -27,8 +27,9 @@ Trying HTML relative links:
 I am so used to websites not allowing ascending relative components in URLs that I wonder if there is a security hole here... Should not be as long as cannot actually escape an areas mapped to the logged in user or guest.
 
 Recording this in two places:
-* main
-* wiki
+* main: https://github.com/AndyGlew/Ri5-stuff/blob/master/hack-relative-URLs-in-github-project-main-repo.md
+* wiki: https://github.com/AndyGlew/Ri5-stuff/wiki/hack-relative-URLs-in-github-project-wiki-repo
+TBD: can I CSE this stuff, transclude, to reduce duplication?
 
 
 Bottom line: relative links
