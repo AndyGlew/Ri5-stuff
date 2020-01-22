@@ -3,8 +3,8 @@ Andy Glew RISC-V stuff
 
 See this project's github wiki: https://github.com/AndyGlew/Ri5-stuff/wiki
 * Q: is there any way that I can refer to that as a relative URL from this README.md
-* <a ref="wiki">wiki relative</a>
-* <a ref="wiki/">wiki/ relative</a>
+* <a href="wiki">wiki relative</a>
+* <a rhef="wiki/">wiki/ relative</a>
 
 
 The active work on the proposal is in the wiki.  Eventually it will probably be moved to the main repoazsitory, although it is possible that I will write tools to assemble the actual proposed spec for publication from the wiki directly.  Tools to do that, and to do things like highlight unfinished parts of the proposal on the wiki, will be placed in the main repository.
