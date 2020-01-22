@@ -37,6 +37,6 @@ Bottom line: relative links
   * to main from wiki: <a href="../blob/master/README.md">href="../blob/master/README.md"</a>
   * to user "root" from wiki: <a href="../..">href="../.."</a>
 * from main
-  * to wiki from main: <a href="../wiki">href="../wiki"</a>
   * to project "root" from main: <a href="../..">href="../.."</a>
   * to user "root" from main: <a href="../../..">href="../../.."</a>
+  * to wiki from main: <a href="../../wiki">href="../../wiki"</a>
