@@ -11,8 +11,8 @@ The active work on the proposal is in the wiki.  Eventually it will probably be 
 
 Q: is there a way to treat this project on github, both "main git repo" and "wiki git repo", as the same object? Otherwise will just check out the reps separately, and coordinate.
 
-* https://github.com/AndyGlew/Ri5-stuff.git
-* https://github.com/AndyGlew/Ri5-stuff.wiki.git
+* https://github.com/AndyGlew/Ri5-stuff
+* https://github.com/AndyGlew/Ri5-stuff.wiki
 
 (for that matter, also the other parts of the project, like issues)
 
