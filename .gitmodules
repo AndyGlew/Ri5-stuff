@@ -1,0 +1,3 @@
+[submodule "Ri5-stuff.wiki"]
+	path = Ri5-stuff.wiki
+	url = git@github.com:AndyGlew/Ri5-stuff.wiki.git
