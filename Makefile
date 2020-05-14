@@ -8,6 +8,7 @@ HTML_VIEWER=/cygdrive/c/Windows/explorer.exe
 PDF_VIEWER=/cygdrive/c/Windows/explorer.exe
 WEB_VIEWER=start URL...
 
+C:=$(shell basename `pwd`)
 W=Ri5-stuff.wiki
 
 default: open-docs-in-browser
@@ -34,6 +35,17 @@ git-post-clone:
 
 git-diff:
 	git diff --submodule
+
+# echo DEBUG: - I'm not really debugging
+# I just want these messages colorized (in emacs)
+# and I already have colorization cvode for DEBUG:.*
+# whereas my attempt at colorizing INFO:.* failed
+# <2020-05-14>
+git-status:
+	@echo DEBUG: $C;git status
+	@(echo DEBUG: $C/$W ;cd $W; git status)
+
+
 
 
 git-ci: git-ci-generated-docs
