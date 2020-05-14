@@ -82,10 +82,10 @@ ASCIIDOCTOR_PDF=/home/glew/bin/asciidoctor-pdf
 
 generated-docs: ./Ri5-CMOs-proposal.html ./Ri5-CMOs-proposal.pdf
 
-./Ri5-CMOs-proposal.html $W/Ri5-CMOs-proposal.html: always #$W/Ri5-CMOs-proposal.asciidoc $W/*.asciidoc
+./Ri5-CMOs-proposal.html $W/Ri5-CMOs-proposal.html: always $W/Ri5-CMOs-proposal.asciidoc $W/*.asciidoc
 	$(ASCIIDOCTOR) -b html $W/Ri5-CMOs-proposal.asciidoc -o $W/Ri5-CMOs-proposal.html
 	cp $W/Ri5-CMOs-proposal.html .
-./Ri5-CMOs-proposal.pdf $W/Ri5-CMOs-proposal.pdf: always #$W/Ri5-CMOs-proposal.asciidoc $W/*.asciidoc
+./Ri5-CMOs-proposal.pdf $W/Ri5-CMOs-proposal.pdf: always $W/Ri5-CMOs-proposal.asciidoc $W/*.asciidoc
 	$(ASCIIDOCTOR_PDF) -b pdf $W/Ri5-CMOs-proposal.asciidoc -o $W/Ri5-CMOs-proposal.pdf
 	cp $W/Ri5-CMOs-proposal.pdf .
 
