@@ -36,7 +36,8 @@ git-diff:
 
 
 git-ci: git-ci-generated-docs
-	git
+	@echo 'Only doing git-ci-generated-docs'
+	@echo 'checkin non-generated stuff by hand'
 
 git-ci-generated-docs:
 	git ci Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf
