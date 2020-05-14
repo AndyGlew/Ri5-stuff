@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Top level last modified</strong>: 2020-05-14 09:58:07 -0700 - top level (TBD: included subdocuments). See <a href="#_techpubs_information">Techpubs Information</a> section below for more details.</p>
+<p><strong>Top level last modified</strong>: 2020-05-14 11:39:00 -0700 - top level (TBD: included subdocuments). See <a href="#_techpubs_information">Techpubs Information</a> section below for more details.</p>
 </div>
 </div>
 </div>
@@ -525,42 +525,37 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_microarchitecture_structure_range_cmos">3. Microarchitecture Structure Range CMOs</a>
 <ul class="sectlevel2">
-<li><a href="#_top_ranked_proposal">3.1. TOP RANKED PROPOSAL</a></li>
-<li><a href="#_cmo_ur_microarchitecture_range_cmo">3.2. CMO.UR - microarchitecture range CMO</a></li>
-<li><a href="#_microarchitecture_structure_range_cmos_2">3.3. Microarchitecture Structure Range CMOs</a>
+<li><a href="#_summary_microarchitecture_structure_range_cmos">3.1. SUMMARY: Microarchitecture Structure Range CMOs</a></li>
+<li><a href="#_details_3">3.2. DETAILS</a>
 <ul class="sectlevel3">
-<li><a href="#_in_detail">3.3.1. In Detail</a>
+<li><a href="#_microarchitecture_entry_range_countdown">3.2.1. Microarchitecture Entry Range - countdown</a></li>
+<li><a href="#_advisory_vs_mandatory_cmos">3.2.2. [[Advisory vs Mandatory CMOs]]</a></li>
+<li><a href="#_possible_implementations_ranging_from_cache_line_at_a_time_to_whole_cache">3.2.3. Possible implementations ranging from cache line at a time to whole cache</a>
 <ul class="sectlevel4">
-<li><a href="#_microarchitecture_entry_range">Microarchitecture Entry Range</a></li>
-<li><a href="#_advisory_vs_mandatory_cmos">[[Advisory vs Mandatory CMOs]]</a></li>
-<li><a href="#_possible_implementations_ranging_from_cache_line_at_a_time_to_cache">Possible implementations ranging from cache line at a time to cache</a>
-<ul class="sectlevel5">
 <li><a href="#_sourcedest_to_support_exception_transparency_2">[[Source/dest]] to support [[exception transparency]]</a></li>
 <li><a href="#_discussion">Discussion</a></li>
 </ul>
 </li>
-<li><a href="#_exceptions_2">Exceptions</a></li>
-<li><a href="#_ecc_and_other_machine_check_exceptions_during_cmos_2">ECC and other machine check exceptions during CMOs</a></li>
-<li><a href="#_permissions_for_cmos_2">Permissions for CMOs</a>
-<ul class="sectlevel5">
+<li><a href="#_exceptions_2">3.2.4. Exceptions</a></li>
+<li><a href="#_ecc_and_other_machine_check_exceptions_during_cmos_2">3.2.5. ECC and other machine check exceptions during CMOs</a></li>
+<li><a href="#_permissions_for_cmos_2">3.2.6. Permissions for CMOs</a>
+<ul class="sectlevel4">
 <li><a href="#_memory_address_based_permissions_for_cmos_2">Memory address based permissions for CMOs</a></li>
 <li><a href="#_permissions_by_cmo_type_2">[[Permissions by CMO type]]</a></li>
 </ul>
 </li>
-<li><a href="#_multiple_caches_and_cmo_ur">Multiple Caches and CMO.UR</a></li>
+<li><a href="#_multiple_caches_and_cmo_ur">3.2.7. Multiple Caches and CMO.UR</a></li>
 </ul>
 </li>
-<li><a href="#_cmo_descriptor_what_is_affected">3.3.2. [[CMO descriptor]] - what is affected</a></li>
-<li><a href="#_cmo_ur_index">3.3.3. [[CMO UR index]]</a>
-<ul class="sectlevel4">
-<li><a href="#_traditional_microarchitecture_cache_invalidation_loops_in_the_past">Traditional microarchitecture cache invalidation loops in the past</a></li>
-<li><a href="#_cmo_ur_abstracts_and_unifies_microarchitecture_cache_invalidation_loops">CMO.UR abstracts and unifies microarchitecture cache invalidation loops</a></li>
+<li><a href="#_cmo_descriptor_what_is_affected">3.3. [[CMO descriptor]] - what is affected</a></li>
+<li><a href="#_cmo_ur_index">3.4. [[CMO UR index]]</a>
+<ul class="sectlevel3">
+<li><a href="#_traditional_microarchitecture_cache_invalidation_loops_in_the_past">3.4.1. Traditional microarchitecture cache invalidation loops in the past</a></li>
+<li><a href="#_cmo_ur_abstracts_and_unifies_microarchitecture_cache_invalidation_loops">3.4.2. CMO.UR abstracts and unifies microarchitecture cache invalidation loops</a></li>
 </ul>
 </li>
-<li><a href="#_cmo_ur_indexes_should_not_be_created_out_of_thin_air">3.3.4. CMO UR indexes should not be created out of thin air</a></li>
-<li><a href="#_errors_during_cmo_ur">3.3.5. Errors during CMO.UR</a></li>
-</ul>
-</li>
+<li><a href="#_cmo_ur_indexes_should_not_be_created_out_of_thin_air">3.5. CMO UR indexes should not be created out of thin air</a></li>
+<li><a href="#_errors_during_cmo_ur">3.6. Errors during CMO.UR</a></li>
 </ul>
 </li>
 <li><a href="#_privilege_for_cmos">4. Privilege for CMOs</a>
@@ -1494,20 +1489,50 @@ CMOs, as well as to [[Fixed Block Size CMOs]] and prefetches.</p>
 <div class="sect1">
 <h2 id="_microarchitecture_structure_range_cmos">3. Microarchitecture Structure Range CMOs</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_top_ranked_proposal">3.1. TOP RANKED PROPOSAL</h3>
 <div class="paragraph">
-<p>This is my, Andy Glew&#8217;s, preferred proposal as of Monday, January 27, 2020-01-27. I prefer it, because it is both the most abstract animals flexible. However, I expect resistance, so have fallback proposals.</p>
+<p>Some situations require cache management operations that are NOT associated with a single address or an address range.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_cmo_ur_microarchitecture_range_cmo">3.2. CMO.UR - microarchitecture range CMO</h3>
 <div class="paragraph">
-<p>Some use cases require or prefer CMOs that apply to a set of memory addresses, typically a contiguous range.</p>
+<p>E.g. if an entire cache needs to be invalidated, it is inefficient to iterate over every possible address that might be in the cache.</p>
+</div>
+<div class="paragraph">
+<p>Some traditional RISC ISAs instructions that invalidate by (set,way).
+Problems with this include:
+exposing microarchitecture details to code that might otherwise be portable,
+inability to take advantage of hardware optimizations like bulk invalidates and state machines,
+etc.</p>
+</div>
+<div class="paragraph">
+<p>This proposal defines instructions in such a way that allows <a href="#_possible_implementations_ranging_from_cache_line_at_a_time_to_full_address_range">Possible implementations ranging from cache line at a time to full address range</a>,
+with a loop such as that below:</p>
+</div>
+<div class="paragraph">
+<p>The CMO.UR instruction is intended to be used in a software loop such as that below</p>
+</div>
+<div class="paragraph">
+<p>In pseudocode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// Possibly set up CMO type in CSR(s) specified by CMO.UR.&lt;&gt; instruction
+x11 := x0
+LOOP
+   CMO.UR.&lt;&gt; x11,x11
+UNTIL X11 &lt; 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In assembly code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    MOV x11,x0
+L:  CMO.UR.&lt;&gt; x11,x11
+    BGEZ x11,L</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_microarchitecture_structure_range_cmos_2">3.3. Microarchitecture Structure Range CMOs</h3>
+<h3 id="_summary_microarchitecture_structure_range_cmos">3.1. SUMMARY: Microarchitecture Structure Range CMOs</h3>
 <div class="paragraph">
 <p>Proposed name: CMO.UR.&lt;cmo-specifier&gt;</p>
 </div>
@@ -1561,7 +1586,7 @@ CMOs, as well as to [[Fixed Block Size CMOs]] and prefetches.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>CMO.VAR.&lt;cmo-specifier&gt; rd_and_rs1</p>
+<p>CMO.UR.&lt;cmo-specifier&gt; rd_and_rs1</p>
 </li>
 </ul>
 </div>
@@ -1592,7 +1617,7 @@ CMOs, as well as to [[Fixed Block Size CMOs]] and prefetches.</p>
 </div>
 </li>
 <li>
-<p>type of operation</p>
+<p>type of operation and caches to which it is applied</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1634,11 +1659,8 @@ CMOs, as well as to [[Fixed Block Size CMOs]] and prefetches.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The name "CMO.UR.&lt;cmo-specifier&gt; is just a placeholder. See [[Mnemonics and Names]] for a discussion of proposed mnemonics and names, including possibilities such as "COP (Cache Op)".</p>
-</div>
-<div class="paragraph">
 <p>This instruction family is [[restartable after partial completion]]. E.g. on and exception such as a [[machine check error]] or a debug address breakpoint the output register RD is to the microarchitecture entry number where the exception was incurred.
-Since the instruction is [[source/dest]], with the register numbers in RD and RS1 required to be the same, returning from the exception to the CMO.VAR instruction will pick up execution where it left off.</p>
+Since the instruction is [[source/dest]], with the register numbers in RD and RS1 required to be the same, returning from the exception to the CMO.UR instruction will pick up execution where it left off.</p>
 </div>
 <div class="paragraph">
 <p>Similarly, implementations may only process part of the range specified by microarchitecture entry numbers [0,num_entries),
@@ -1666,22 +1688,22 @@ and other operations, as well as the caches involved. See [[CMO (Cache Managemen
 <div class="ulist">
 <ul>
 <li>
-<p>CMO.VAR.CLEAN</p>
+<p>CMO.UR.CLEAN</p>
 </li>
 <li>
-<p>CMO.VAR.FLUSH</p>
+<p>CMO.UR.FLUSH</p>
 </li>
 <li>
-<p>CMO.VAR.0</p>
+<p>CMO.UR.0</p>
 </li>
 <li>
-<p>CMO.VAR.1</p>
+<p>CMO.UR.1</p>
 </li>
 </ul>
 </div>
-<h6 id="_loops_to_support_cacheline_at_a_time_implementations" class="discrete">Loops to support cacheline at a time implementations</h6>
+<h5 id="_loops_to_support_cacheline_at_a_time_implementations" class="discrete">Loops to support cacheline at a time implementations</h5>
 <div class="paragraph">
-<p>The CMO.VAR instruction is intended to be used in a software loop such as that below</p>
+<p>The CMO.UR instruction is intended to be used in a software loop such as that below</p>
 </div>
 <div class="paragraph">
 <p>In pseudocode:</p>
@@ -1705,48 +1727,68 @@ L:  CMO.UR.&lt;&gt; x11,x11
     BGEZ x11,L</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_details_3">3.2. DETAILS</h3>
 <div class="sect3">
-<h4 id="_in_detail">3.3.1. In Detail</h4>
-<div class="sect4">
-<h5 id="_microarchitecture_entry_range">Microarchitecture Entry Range</h5>
+<h4 id="_microarchitecture_entry_range_countdown">3.2.1. Microarchitecture Entry Range - countdown</h4>
 <div class="paragraph">
-<p>When used in a loop such as <code>X11:=0; LOOP CMO.UR X1; UNTIL X11 &lt; 0</code>
+<p>When used in a loop such as <code>X11:= ~0; LOOP CMO.UR X1; UNTIL X11 &lt; 0</code>
 the cache management operation is applied to a range of microarchitecture entry numbers
 for the cache specified by the .<cmo-type>field of the CMO.UR instruction.</cmo-type></p>
 </div>
 <div class="paragraph">
-<p>Such microarchitecture entry ranges are defined to start at entry zero
-and extended to some maximum entry number.
-The maximum entry number is not needed by this instruction, although it may be possible to obtain from some [[system description]] mechanism such as <a id="CPUID"></a>.</p>
+<p>For the purposes of this instruction,
+a cache has entries numbered from 0
+extending to some maximum entry number.</p>
+</div>
+<div class="paragraph">
+<p>The CMO.UR instructions avoid the need for the user to know or discover the number of lines in the cache,
+by starting the iteration at the possible number (all set bits, i.e. -1 or ~0)
+and modifying the index until &lt;0.
+The implementation is therefore required to "skip" index numbers that are not valid.</p>
 </div>
 <div class="paragraph">
 <p>Typical cache entries have have (set,way) coordinates.<br>
 The microarchitecture entry number may be a simple transformation such as
 <code>e = set*nways+way</code>
 or <code>e = way*nsets+set</code>,
-and the iteration may simply increment by one for every cache line affected until the maximum number of entries  is reached.</p>
+and the iteration may simply decrement by one for every cache line affected until the maximum number of entries  is reached.</p>
 </div>
 <div class="paragraph">
-<p>When the maximum number of entries is reached the CMO.UR instruction sets RD=-1 (all 1s unsigned).
-i.e. the instruction is required to skip from the maximum microarchitecture entry number to -1.</p>
+<p>Pseudocode for a simple CMO.UR instruction implementation might look like:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  CMO.UR rd,rs1  // where register numbers rd and rs1 are required to be the same
+       index := rs1 &amp; (CACHE_ENTRIES - 1)
+perform CMO for cache entry #index
+index := index-1</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>(Other negative final values of RD are reserved for possible error indications. However, at this moment all errors are expected to cause traps.)</p>
+<p>Other recurrences for the index are possible.
+All that is required is that the sequence begin with -1 and terminate with -1, with all intermediate values positive and no repetitions,
+so that the reference CMO.UR loop loop is guaranteed to make forward progress and eventually terminate, after visiting all of the entries in the cache,
+It is not required that the index be monotonically decreasing.</p>
 </div>
 <div class="paragraph">
-<p>An implementation may simply increment by want every cache line affected until the maximum number of entries is reached, and then terminate with -1.
-However, implementations perform different arbitrary mappings, and may perform nonmonotonic iterations of the microarchitecture entry number, so long as the sequence <code>i1=successor(0), i2=successor(i1), ...</code>
-eventually enumerates all valid entry numbers in the specified cache,
-and is strictly positive, i.e. nonzero.
-This sequence is not guaranteed monotonic. (Such a "twisted" sequence might be used to hide microarchitecture details and mitigate information leaks.)
-This sequence may contain numbers that do not map to actual cache lines, so long as those invalid mappings do not cause exceptions. (E.g. [[Way Locking and CMO.UR]] or [[Multiple Caches and CMO.UR]].) Such implementations should not, however, "waste too much time" on invalid entries.</p>
+<p>Indeed "twisting" the index sequence might be used to hide microarchitecture details and mitigate information leaks.
+(The twisting might even be PC dependent.)</p>
 </div>
 <div class="paragraph">
-<p>TBD: tighten specification to discourage "out of thin air"</p>
+<p>The sequence of indexes may contain values that do not map to actual cache lines, so long as those invalid mappings do not cause exceptions.
+(E.g. [[Way Locking and CMO.UR]] or [[Multiple Caches and CMO.UR]].)
+Such implementations should not, however, "waste too much time" on invalid entries.</p>
+</div>
+<div class="paragraph">
+<p>Users should not assume or rely on a simple mapping of CMO.UR indexes to (set,way).
+E.g. users should not assume that they can invalidatean entire of a 4-way set associative cache by stepping the index by -4
+in a non-standard loop structure.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_advisory_vs_mandatory_cmos">[[Advisory vs Mandatory CMOs]]</h5>
+<div class="sect3">
+<h4 id="_advisory_vs_mandatory_cmos">3.2.2. [[Advisory vs Mandatory CMOs]]</h4>
 <div class="paragraph">
 <p>As described in [[Advisory vs Mandatory CMOs]]:</p>
 </div>
@@ -1788,7 +1830,7 @@ POR: it is permitted for any non-value changing operations to apply beyond the r
 there is much disagreement with respect to terminology, whether
 operations that directly affect values (such as [[DISCARD cache
 line]]) are to be considered CMOs at all, or whether they might be
-specified by the CMO instructions such as CMO.VAR. For the purposes of
+specified by the CMO instructions such as CMO.UR. For the purposes of
 this discussion we will assume that they could be specified by these
 instructions.
 </td>
@@ -1796,8 +1838,8 @@ instructions.
 </table>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_possible_implementations_ranging_from_cache_line_at_a_time_to_cache">Possible implementations ranging from cache line at a time to cache</h5>
+<div class="sect3">
+<h4 id="_possible_implementations_ranging_from_cache_line_at_a_time_to_whole_cache">3.2.3. Possible implementations ranging from cache line at a time to whole cache</h4>
 <div class="paragraph">
 <p>The CMO.UR instruction family permits implementations that include</p>
 </div>
@@ -1807,8 +1849,10 @@ instructions.
 <p>operating a cache line at a time</p>
 </li>
 <li>
-<p>trapping and emulating (e.g. in M-mode)
-3 HW state machines that can operate on the full range</p>
+<p>trapping and emulating (e.g. in M-mode)</p>
+</li>
+<li>
+<p>HW state machines that can operate on the full range</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1820,7 +1864,7 @@ instructions.
 </ol>
 </div>
 <div class="paragraph">
-<p>First: Cache line at a time implementations are typical of many other ISAs, RISC and otherwise.</p>
+<p>First: Cache line at a time implementations using (set,way) are typical of many other ISAs, RISC and otherwise.</p>
 </div>
 <div class="paragraph">
 <p>Second: On some implementations the actual cache management interface is
@@ -1835,13 +1879,13 @@ Hence, the address range semantics.</p>
 acceptable to block interrupts for a long time while cache flushes are
 applied to every cache line in address range. Furthermore, address range CMOs
 may be subject to address related exceptions such as page-faults and debug breakpoints.
-The definition of this instruction permits range implementations that are [[restartable after partial completion]].</p>
+The definition of this instruction permits state machine implementations that are [[restartable after partial completion]].</p>
 </div>
-<div class="sect5">
-<h6 id="_sourcedest_to_support_exception_transparency_2">[[Source/dest]] to support [[exception transparency]]</h6>
+<div class="sect4">
+<h5 id="_sourcedest_to_support_exception_transparency_2">[[Source/dest]] to support [[exception transparency]]</h5>
 <div class="paragraph">
 <p>This instruction family is [[restartable after partial completion]]. E.g. on an exception such as a page fault or debug address breakpoint the output register RD is set to the data address of the exception,
-and since the instruction is [[source/dest]], with the register numbers in RD and RS1 required to be the same, returning from the exception to the CMO.VAR instruction will pick up execution where it left off.</p>
+and since the instruction is [[source/dest]], with the register numbers in RD and RS1 required to be the same, returning from the exception to the CMO.UR instruction will pick up execution where it left off.</p>
 </div>
 <div class="paragraph">
 <p>RATIONALE: This proposal has chosen to implement [[source/dest]] by requiring separate register fields RD and RS1 to contain the same value. An alternative was to make register field RD both an input and an output, allowing RS1 and RS2 to be used for other inputs. Separate RD=RS1 source/dest is more natural for a RISC instruction decoder, and detecting RD=RS1 has already been performed for other RISC-V instructions, e.g. in the V extension. However separate RD=RS1 "wastes" instruction encodings by making RD!=RS1 illegal,, and leaves no register free for any 3rd operand such as the CMO type, hence requiring .&lt;cmo-specifier&gt; in the instruction encoding.</p>
@@ -1853,26 +1897,26 @@ and since the instruction is [[source/dest]], with the register numbers in RD an
 <p><mark>#</mark>[[Actual CMO Operations]]</p>
 </div>
 </div>
-<div class="sect5">
-<h6 id="_discussion">Discussion</h6>
+<div class="sect4">
+<h5 id="_discussion">Discussion</h5>
 <div class="paragraph">
 <p>The software loop around the CMO range instructions is required only to support cache line at a time implementations.
 If this proposal only wanted to support hardware state machines or trap and emulate, the software loop would not be needed.</p>
 </div>
 <div class="paragraph">
 <p>Although some CMOs may be optional or advisory, that refers to their effect upon memory or cache.
-The range oriented CMOs like CMO.VAR cannot simply be made into NOPs, because the loops above would never terminate.
+The range oriented CMOs like CMO.UR cannot simply be made into NOPs, because the loops above would never terminate.
 The cache management operation may be dropped or ignored,
 But RD must be set in such a way that the sequence beginning with zeros will eventually touch all cache lines necessary and terminate with -1. (TBD: link the text above.)</p>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_exceptions_2">Exceptions</h5>
+<div class="sect3">
+<h4 id="_exceptions_2">3.2.4. Exceptions</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Illegal Instruction Exceptions: taken, if the CMO.VAR.&lt;cmo-specifier&gt; is not supported.</p>
+<p>Illegal Instruction Exceptions: taken, if the CMO.UR.&lt;cmo-specifier&gt; is not supported.</p>
 </li>
 <li>
 <p>Permission Exception: for CMO not permitted</p>
@@ -1923,8 +1967,8 @@ whose caches use virtual addresses, and which perform the virtual the physical a
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_ecc_and_other_machine_check_exceptions_during_cmos_2">ECC and other machine check exceptions during CMOs</h5>
+<div class="sect3">
+<h4 id="_ecc_and_other_machine_check_exceptions_during_cmos_2">3.2.5. ECC and other machine check exceptions during CMOs</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1951,10 +1995,10 @@ However, an uncorrectable error in a clean cache line may be ignorable since it 
 <p>Such machine check behavior is implementation dependent.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_permissions_for_cmos_2">3.2.6. Permissions for CMOs</h4>
 <div class="sect4">
-<h5 id="_permissions_for_cmos_2">Permissions for CMOs</h5>
-<div class="sect5">
-<h6 id="_memory_address_based_permissions_for_cmos_2">Memory address based permissions for CMOs</h6>
+<h5 id="_memory_address_based_permissions_for_cmos_2">Memory address based permissions for CMOs</h5>
 <div class="paragraph">
 <p>Most CMO.UR.&lt;&gt; implementations do not need to use address based permissions.
 CMO.UR for the most part are controlled by [[Permissions by CMO type]].</p>
@@ -2013,17 +2057,17 @@ in order to prevent any problems that might arise
 </ul>
 </div>
 </div>
-<div class="sect5">
-<h6 id="_permissions_by_cmo_type_2">[[Permissions by CMO type]]</h6>
+<div class="sect4">
+<h5 id="_permissions_by_cmo_type_2">[[Permissions by CMO type]]</h5>
 <div class="paragraph">
 <p>See section [[Permissions by CMO type]]
-which applies to both address range CMO.VAR.&lt;cmo-specifier&gt; and microarchitecture entry range CMO.UR.&lt;cmo-specifier&gt;
+which applies to both address range CMO.UR.&lt;cmo-specifier&gt; and microarchitecture entry range CMO.UR.&lt;cmo-specifier&gt;
 CMOs, as well as to [[Fixed Block Size CMOs]].</p>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_multiple_caches_and_cmo_ur">Multiple Caches and CMO.UR</h5>
+<div class="sect3">
+<h4 id="_multiple_caches_and_cmo_ur">3.2.7. Multiple Caches and CMO.UR</h4>
 <div class="paragraph">
 <p>Cache management operations may affect multiple caches in a system. E.g. flushing data from a shared L2 may invalidate data in multiple processors' L1 I and D-caches, in addition to writing back dirty data from the L2, while traversing and invalidating an L3 before eventually being sent to memory. However, often the invalidation of multiple peer caches, the L1 I and D caches, is accomplished by cache inclusion mechanisms such as backwards and validate.</p>
 </div>
@@ -2032,8 +2076,8 @@ CMOs, as well as to [[Fixed Block Size CMOs]].</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_cmo_descriptor_what_is_affected">3.3.2. [[CMO descriptor]] - what is affected</h4>
+<div class="sect2">
+<h3 id="_cmo_descriptor_what_is_affected">3.3. [[CMO descriptor]] - what is affected</h3>
 <div class="paragraph">
 <p>See [[CMO descriptor]] for an explanation of how the CMO instructions, and this instruction CMO.UR in particular, specify which caches and branch predictors and other microarchitecture state should be managed.</p>
 </div>
@@ -2041,10 +2085,10 @@ CMOs, as well as to [[Fixed Block Size CMOs]].</p>
 <p>Suffice it to say that a single CMO.UR instruction is able to perform invalidations and/or cache flushes of multiple caches in the same CMO.UR loop construct. This is accomplished by the [[CMO UR descriptor operand]]</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_cmo_ur_index">3.4. [[CMO UR index]]</h3>
 <div class="sect3">
-<h4 id="_cmo_ur_index">3.3.3. [[CMO UR index]]</h4>
-<div class="sect4">
-<h5 id="_traditional_microarchitecture_cache_invalidation_loops_in_the_past">Traditional microarchitecture cache invalidation loops in the past</h5>
+<h4 id="_traditional_microarchitecture_cache_invalidation_loops_in_the_past">3.4.1. Traditional microarchitecture cache invalidation loops in the past</h4>
 <div class="paragraph">
 <p>Many computer architectures can invalidate a cache in time proportional to the number of entries within the cache using a code construct that looks like the following:</p>
 </div>
@@ -2081,8 +2125,8 @@ CMOs, as well as to [[Fixed Block Size CMOs]].</p>
 <p>Portable code might be able to determine what hardware data structures it needs to invalidate by inspecting a [[system description such as CPUID or config string]]. However, it may be necessary to invalidate the hardware data structures e.g. caches in a particular order. E.g. on a system with no cache coherence, not even hierarchical, it may be necessary to flush dirty data first from the L1 to the L2, then from the L2 to the L3, &#8230;&#8203; ultimately to memory.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_cmo_ur_abstracts_and_unifies_microarchitecture_cache_invalidation_loops">CMO.UR abstracts and unifies microarchitecture cache invalidation loops</h5>
+<div class="sect3">
+<h4 id="_cmo_ur_abstracts_and_unifies_microarchitecture_cache_invalidation_loops">3.4.2. CMO.UR abstracts and unifies microarchitecture cache invalidation loops</h4>
 <div class="paragraph">
 <p>CMO.UR and the [[CMO UR index]] abstract such microarchitecture dependencies as follows:</p>
 </div>
@@ -2226,8 +2270,8 @@ CMOs, as well as to [[Fixed Block Size CMOs]].</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_cmo_ur_indexes_should_not_be_created_out_of_thin_air">3.3.4. CMO UR indexes should not be created out of thin air</h4>
+<div class="sect2">
+<h3 id="_cmo_ur_indexes_should_not_be_created_out_of_thin_air">3.5. CMO UR indexes should not be created out of thin air</h3>
 <div class="paragraph">
 <p>Software invoking CMO.UR should not create arbitrary CMO UR indexes "out of thin air".</p>
 </div>
@@ -2294,8 +2338,8 @@ the loop construct can be interrupted and restarted from scratch. There is no re
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_errors_during_cmo_ur">3.3.5. Errors during CMO.UR</h4>
+<div class="sect2">
+<h3 id="_errors_during_cmo_ur">3.6. Errors during CMO.UR</h3>
 <div class="paragraph">
 <p>CMO.UR&#8217;s output register RD is set to zero on successful completion of the operation.</p>
 </div>
@@ -2312,11 +2356,10 @@ the loop construct can be interrupted and restarted from scratch. There is no re
 <div class="title">Note</div>
 </td>
 <td class="content">
-unfortunately, such error reporting can not be performed for the memory address range based CMOs, CMO.FR, since there RD return value can assume all permissible values as it is an excellent address.
+unfortunately, such error reporting can not be performed for the memory address range based CMOs, CMO.UR, since there RD return value can assume all permissible values as it is an excellent address.
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 </div>
@@ -2501,7 +2544,7 @@ but have already been helpful finding source for orphaned PDF arafnd HTML.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>docdatetime:  2020-05-14 09:58:07 -0700 - last modified date and time</p>
+<p>docdatetime:  2020-05-14 11:39:00 -0700 - last modified date and time</p>
 </li>
 <li>
 <p>docfile:  /cygdrive/c/Users/glew/Documents/GitHub/Ri5-stuff/Ri5-stuff.wiki/Ri5-CMOs-proposal.asciidoc - full path</p>
@@ -2514,7 +2557,7 @@ but have already been helpful finding source for orphaned PDF arafnd HTML.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>localdatetime:  2020-05-14 10:09:17 -0700</p>
+<p>localdatetime:  2020-05-14 12:44:32 -0700</p>
 </li>
 <li>
 <p>outfile:  /cygdrive/c/Users/glew/Documents/GitHub/Ri5-stuff/Ri5-stuff.wiki/Ri5-CMOs-proposal.html - full path of the output file</p>
@@ -2649,7 +2692,7 @@ but have already been helpful finding source for orphaned PDF arafnd HTML.</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1: Fixed Block Prefetches + CMOs<br>
-Last updated 2020-05-14 09:58:07 -0700
+Last updated 2020-05-14 11:39:00 -0700
 </div>
 </div>
 </body>
