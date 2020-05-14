@@ -49,14 +49,14 @@ git-ci-generated-docs:
 
 open-docs-in-browser: open-html-in-browser open-pdf-in-browser
 
-open-html-in-browser: ./Ri5-CMOs-proposal.html
+open-html-in-browser: $W/Ri5-CMOs-proposal.html
 	# KLUGE: Windows HTML viewer does not understand / paths
 	# either need to convert / --> /, cd, or cygpath
-	-$(HTML_VIEWER) Ri5-CMOs-proposal.html
-open-pdf-in-browser: ./Ri5-CMOs-proposal.pdf
+	-(cd $W;$(HTML_VIEWER) Ri5-CMOs-proposal.html)
+open-pdf-in-browser: $W/Ri5-CMOs-proposal.pdf
 	# KLUGE: Windows PDF viewer does not understand / paths
 	# either need to convert / --> /, cd, or cygpath
-	-$(PDF_VIEWER) Ri5-CMOs-proposal.pdf
+	-(cd $W;$(PDF_VIEWER) Ri5-CMOs-proposal.pdf)
 
 ASCIIDOCTOR=/home/glew/bin/asciidoctor
 ASCIIDOCTOR_PDF=/home/glew/bin/asciidoctor-pdf
