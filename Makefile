@@ -54,8 +54,10 @@ git-ci: git-ci-generated-docs
 
 M='commiting generated HTML and PDF files'
 git-ci-generated-docs:
-	git ci -m $M Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf
-	(cd $W;git ci -m $MRi5-CMOs-proposal.html Ri5-CMOs-proposal.pdf)
+	-git ci -m $M Ri5-CMOs-proposal.html
+	-git ci -m $M Ri5-CMOs-proposal.pdf
+	-(cd $W;git ci -m $M Ri5-CMOs-proposal.html)
+	-(cd $W;git ci -m $M RiRi5-CMOs-proposal.pdf)
 
 
 
