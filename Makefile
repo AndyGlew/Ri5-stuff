@@ -6,6 +6,7 @@
 
 HTML_VIEWER=/cygdrive/c/Windows/explorer.exe
 PDF_VIEWER=/cygdrive/c/Windows/explorer.exe
+WEB_VIEWER=start URL...
 
 W=Ri5-stuff.wiki
 
@@ -39,15 +40,20 @@ git-ci: git-ci-generated-docs
 	@echo 'Only doing git-ci-generated-docs'
 	@echo 'checkin non-generated stuff by hand'
 
+M='commiting generated HTML and PDF files'
 git-ci-generated-docs:
-	git ci Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf
-	(cd $W;git ci Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf)
+	git ci -m $M Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf
+	(cd $W;git ci -m $MRi5-CMOs-proposal.html Ri5-CMOs-proposal.pdf)
 
 
 
 # Make and display proposal draft
 
-open-docs-in-browser: open-html-in-browser open-pdf-in-browser
+open-docs-in-browser: open-local-docs-in-browser
+open-local-docs-in-browser: open-html-in-browser open-pdf-in-browser
+
+open-github-docs-in-browser:
+
 
 open-html-in-browser: $W/Ri5-CMOs-proposal.html
 	# KLUGE: Windows HTML viewer does not understand / paths
