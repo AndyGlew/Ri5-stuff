@@ -11,11 +11,38 @@ W=Ri5-stuff.wiki
 
 default: open-docs-in-browser
 
-# run `make post-clone' right after git clone of Ri5-stuff
+
+###############
+# git stuff
+# mainly to remind me about git submodule commands
+# that I do not know by heart
+# (and think are kluget anyway)
+
+# run `make git-post-clone' right after git clone of Ri5-stuff
 # to update submodules (currently only Ri5-stuff.wiki)
-post-clone:
+git-post-clone:
 	git submodule init
 	git submodule update
+
+# checking in generated docs
+# a) to make visible on web/GitHub
+# b) because toolchain fragile
+# TBD: checking in redundant copies, in wiki and parent,
+# mostly because belongs and should be versioned with wiki,
+# but displays only in parent.
+
+git-diff:
+	git diff --submodule
+
+
+git-ci: git-ci-generated-docs
+	git
+
+git-ci-generated-docs:
+	git ci Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf
+	(cd $W;git ci Ri5-CMOs-proposal.html Ri5-CMOs-proposal.pdf)
+
+
 
 # Make and display proposal draft
 
