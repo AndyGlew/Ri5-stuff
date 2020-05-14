@@ -18,7 +18,7 @@ default: open-docs-in-browser
 # git stuff
 # mainly to remind me about git submodule commands
 # that I do not know by heart
-# (and think are kluget anyway)
+# (and think are kluges anyway)
 
 # run `make git-post-clone' right after git clone of Ri5-stuff
 # to update submodules (currently only Ri5-stuff.wiki)
@@ -68,12 +68,12 @@ open-github-docs-in-browser:
 
 
 open-html-in-browser: $W/Ri5-CMOs-proposal.html
-	# KLUGE: Windows HTML viewer does not understand / paths
-	# either need to convert / --> /, cd, or cygpath
+	@# KLUGE: Windows HTML viewer does not understand / paths
+	@# either need to convert / --> /, cd, or cygpath
 	-(cd $W;$(HTML_VIEWER) Ri5-CMOs-proposal.html)
 open-pdf-in-browser: $W/Ri5-CMOs-proposal.pdf
-	# KLUGE: Windows PDF viewer does not understand / paths
-	# either need to convert / --> /, cd, or cygpath
+	@# KLUGE: Windows PDF viewer does not understand / paths
+	@# either need to convert / --> /, cd, or cygpath
 	-(cd $W;$(PDF_VIEWER) Ri5-CMOs-proposal.pdf)
 
 ASCIIDOCTOR=/home/glew/bin/asciidoctor
