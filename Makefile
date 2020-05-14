@@ -52,7 +52,7 @@ git-ci: git-ci-generated-docs
 	@echo 'Only doing git-ci-generated-docs'
 	@echo 'checkin non-generated stuff by hand'
 
-M='commiting generated HTML and PDF files'
+M='committing generated HTML and PDF files'
 git-ci-generated-docs:
 	-git ci -m $M Ri5-CMOs-proposal.html
 	-git ci -m $M Ri5-CMOs-proposal.pdf
