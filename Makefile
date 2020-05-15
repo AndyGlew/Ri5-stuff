@@ -95,3 +95,12 @@ generated-docs: ./Ri5-CMOs-proposal.html ./Ri5-CMOs-proposal.pdf
 # But... I really want to have the generated HTML in the wiki, not the parent.
 
 always:
+
+
+# While it would be nice to have real tags for he documents, and wiki pages, e.g. for sections
+# at the moment although I am really reusing the tags for is to do global tags-query-replacve in emacs
+# so I only need the planning, not any patterns.
+tags TAGS: always
+	cp /dev/null TAGS
+	etags --append --langdef=asciidoc --langmap=asciidoc:.asciidoc --regex-asciidoc='/^=+\\(.*\\)/\\1/' $W/*.asciidoc
+	etags --append --langdef=markdown --langmap=markdown:.md --regex-markdown='/^=+\\(.*\\)/\\1/' $W/*.md
