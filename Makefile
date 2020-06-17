@@ -100,7 +100,9 @@ always:
 # While it would be nice to have real tags for he documents, and wiki pages, e.g. for sections
 # at the moment although I am really reusing the tags for is to do global tags-query-replacve in emacs
 # so I only need the planning, not any patterns.
-tags TAGS: always
+tags-ad TAGS: always
 	cp /dev/null TAGS
 	etags --append --langdef=asciidoc --langmap=asciidoc:.asciidoc --regex-asciidoc='/^=+\\(.*\\)/\\1/' $W/*.asciidoc
+
+tags tags-all: tags-ad
 	etags --append --langdef=markdown --langmap=markdown:.md --regex-markdown='/^=+\\(.*\\)/\\1/' $W/*.md
