@@ -572,7 +572,7 @@ body.manpage div.sectionbody {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>2020-06-22 15:03:15 -0700 - When this draft was generated. Not necessarily modified.</p>
+<p>2020-06-24 14:15:04 -0700 - When this draft was generated. Not necessarily modified.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="https://github.com/AndyGlew/Ri5-stuff/wiki/generated-HTML-and-PDF-for-CMOs-proposal" class="bare">https://github.com/AndyGlew/Ri5-stuff/wiki/generated-HTML-and-PDF-for-CMOs-proposal</a>
@@ -802,6 +802,8 @@ See <a href="#_rationale_using_asciidoctor_note_admonition">Rationale using Asci
 </ul>
 </li>
 <li><a href="#_7">.</a></li>
+<li><a href="#_other_issues_for_this_cmo_proposal">8. Other issues for this CMO Proposal</a></li>
+<li><a href="#_8">.</a></li>
 <li><a href="#_techpubs_information">Appendix A: Techpubs Information</a>
 <ul class="sectlevel2">
 <li><a href="#_conventions_specific_to_this_document">A.1. Conventions specific to this document.</a>
@@ -4004,6 +4006,98 @@ Other processor caches in the HW clean coherence domain do not need to be flushe
 </div>
 </div>
 <div class="sect1">
+<h2 id="_other_issues_for_this_cmo_proposal">8. Other issues for this CMO Proposal</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Discussion, issues, and rationale, have been embedded in this in such NOTE sections,  interleaved with normative text.</p>
+</div>
+<div class="paragraph">
+<p>This section  serves to capture such issues that  did not naturally get interleaved elsewhere.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">Extensibility Limitation: Non-address tag specific invalidations</div>
+<div class="paragraph">
+<p>Many computer systems have "special tags" - non-address tags - in their caches - e.g. security domains - and want  selective cache invalidations and flushes  for such  special-tags.</p>
+</div>
+<div class="paragraph">
+<p>The instruction format in this current CMO proposal cannot be extended to do this. The address range CMO.AR already uses all three register fields in the standard RISC-V R format, so there is no free register operand to specify the special-tag.  The microarchitecture index CMO.UR only uses 2 register fields, but it encoding is packed such that CMO.UR = CMO.AR with rs2=x0, so again there is no free register operand specify the special-tag.</p>
+</div>
+<div class="paragraph">
+<p>This is acceptable for use case of security information leak mitigation, which requires the entire cache to be invalidated or flushed.</p>
+</div>
+<div class="paragraph">
+<p>But there are other use cases which can benefit from selective special-tag invalidations. In particular, when the special-tag is being recycled, when it was used for an old process that is no longer running, and is needed for a new process.</p>
+</div>
+<div class="paragraph">
+<p>Also, it seems natural to extend this CMO  proposal to TLB invalidation,  but it is quite common in computer instruction sets to provide  PID or ASID or VMID   specific invalidations. Not just when recycling such a special-tag, but also when translations are changed.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">CPU hardware may not be aware of system configuration</div>
+<div class="paragraph">
+<p>Operations such as "flush to the point of I/O coherence"
+are  dependent not on CPU microarchitecture but on system architecture.
+E.g.  the point of I/O coherence may be DRAM, or it may be a last level cache, if the I/O device can do cache line injection.
+Indeed,  the point of I/O coherence  may be different for different devices in the same system.
+SW may only want to do the minimum necessary for the device it is working with.
+There is no provision in this CMO proposal for that.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, cache flushes for  security related information channel mitigation
+may  in general need to flush all cache levels, L1-L2-L3
+(or  at least up to the cache level where the bandwidth of the channels is acceptably low).
+However, in  other situations some of the outer cache levels may be  partitioned and not require flushing, e.g. by cache ways.</p>
+</div>
+<div class="paragraph">
+<p>Exactly which levels of cache need to be flushed  for any particular operation is not known to the CPU, may be system  hardware dependent, but may also be system software dependent.</p>
+</div>
+<div class="paragraph">
+<p>In general, what CMO should be used, .&lt;cmo_specifier&gt;&gt;.&lt;which_cache&gt;,  should be mapped from abstract CMO concepts to which caches actually must be involved.
+There is no provision in this memo for such mapping in this proposal, except for trapping and emulating by M-mode.</p>
+</div>
+<div class="paragraph">
+<p>Realistically this will probably mean that the abstract CMO operations in this proposal are useless.  Programmers will need to figure out which caches actually get modified by any of the instructions, and will probably ignore the abstractions.
+This is no better than the current state of the art.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_8">.</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
 <h2 id="_techpubs_information">Appendix A: Techpubs Information</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -4049,7 +4143,7 @@ Therefore, section headers do not appear as these rationale/notes, even if the e
 <div class="ulist">
 <ul>
 <li>
-<p>docdatetime:  2020-06-22 12:38:44 -0700 - last modified date and time</p>
+<p>docdatetime:  2020-06-24 14:15:02 -0700 - last modified date and time</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4059,7 +4153,7 @@ Therefore, section headers do not appear as these rationale/notes, even if the e
 </div>
 </li>
 <li>
-<p>localdatetime:  2020-06-22 15:03:15 -0700 - when generated</p>
+<p>localdatetime:  2020-06-24 14:15:04 -0700 - when generated</p>
 </li>
 </ul>
 </div>
@@ -4220,7 +4314,7 @@ Therefore, section headers do not appear as these rationale/notes, even if the e
 <p>docfile:  /cygdrive/c/Users/glew/Documents/GitHub/Ri5-stuff/Ri5-stuff.wiki/Ri5-CMOs-proposal.asciidoc - full path</p>
 </li>
 <li>
-<p>localdatetime:  2020-06-22 15:03:15 -0700 - when generated</p>
+<p>localdatetime:  2020-06-24 14:15:04 -0700 - when generated</p>
 </li>
 <li>
 <p>outfile:  /cygdrive/c/Users/glew/Documents/GitHub/Ri5-stuff/Ri5-stuff.wiki/Ri5-CMOs-proposal.html - full path of the output file</p>
@@ -4241,7 +4335,7 @@ but have already been helpful finding source for orphaned drafts generated as PD
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2020-06-22 12:38:44 -0700
+Last updated 2020-06-24 14:15:02 -0700
 </div>
 </div>
 </body>
